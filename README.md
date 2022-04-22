@@ -10,7 +10,7 @@ Getting a token by this link:
 <img src=https://user-images.githubusercontent.com/101453514/164579637-6d2d0562-4634-4f64-8ceb-585c0ad58d22.png></br>
 <h1>Version 1.1</h1>
 Added get top user clips and get top game clips by thei name.</br>
-You can see how to use commands by ryping /help</br>
+You can see how to use commands by using /help</br>
 Some examples:</br>
 <img src=https://user-images.githubusercontent.com/101453514/164789740-903672dd-6f48-48bc-bff7-0f41fa4a50ff.png>
 <img src=https://user-images.githubusercontent.com/101453514/164789893-c4a6e865-e299-41f5-b1e1-4a98baabd286.png>
