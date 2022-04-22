@@ -5,6 +5,6 @@ To use this bot u need to get access token by using command /gettoken</br>
 Now it is  just beta version that can only get top Overwatch clips</br>
 Some examples:</br>
 Getting a token by this link:
-![image](https://user-images.githubusercontent.com/101453514/164579394-2702e67c-6cd8-429c-8d21-74be31abc953.png)
-![image](https://user-images.githubusercontent.com/101453514/164579411-f4c80517-83d1-4d88-86d4-c8beb2729c01.png)
+<img src=https://user-images.githubusercontent.com/101453514/164579479-2b0a3225-61ec-46a9-a7c5-3dd88d96919a.png>
+
 
