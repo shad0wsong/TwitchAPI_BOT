@@ -18,6 +18,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class GetTopGameClips extends BotCommand {
+    ParseClass parseClass = new ParseClass();
     public GetTopGameClips(String commandIdentifier, String description) {
         super(commandIdentifier, description);
     }
@@ -28,12 +29,13 @@ public class GetTopGameClips extends BotCommand {
         TwitchClient twitchClient = TwitchClientBuilder.builder()
                 .withEnableHelix(true)
                 .build();
-        GameList resultList = twitchClient.getHelix().getGames(testController.token,null, Arrays.asList(strings[0])).execute();
+        String gameName=parseClass.gameNameParse(strings);
+        GameList resultList = twitchClient.getHelix().getGames(MyBot.accessAppToken,null, Arrays.asList(gameName)).execute();
         resultList.getGames().forEach(game -> {
              gameId[0] =game.getId();
         });
 
-        ClipList clipList = twitchClient.getHelix().getClips(testController.token, null, gameId[0], null, null, null, 10, null,null).execute();
+        ClipList clipList = twitchClient.getHelix().getClips(MyBot.accessAppToken, null, gameId[0], null, null, null, 10, null,null).execute();
         Comparator<Clip> viewComparator = (o1, o2) -> o1.getViewCount().compareTo(o2.getViewCount());
         clipList.getData().sort(viewComparator);
 

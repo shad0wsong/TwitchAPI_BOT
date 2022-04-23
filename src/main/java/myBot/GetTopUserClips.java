@@ -29,11 +29,11 @@ public class GetTopUserClips extends BotCommand {
         TwitchClient twitchClient = TwitchClientBuilder.builder()
                 .withEnableHelix(true)
                 .build();
-        UserList resultList = twitchClient.getHelix().getUsers(testController.token, null, Arrays.asList(strings[0])).execute();
+        UserList resultList = twitchClient.getHelix().getUsers(MyBot.accessAppToken, null, Arrays.asList(strings[0])).execute();
         resultList.getUsers().forEach(user -> {
                     userId[0]=user.getId();
                 });
-        ClipList clipList = twitchClient.getHelix().getClips(testController.token, userId[0], null, null, null, null, 10, null,null).execute();
+        ClipList clipList = twitchClient.getHelix().getClips(MyBot.accessAppToken, userId[0], null, null, null, null, 10, null,null).execute();
         Comparator<Clip> viewComparator = (o1, o2) -> o1.getViewCount().compareTo(o2.getViewCount());
         clipList.getData().sort(viewComparator);
 
