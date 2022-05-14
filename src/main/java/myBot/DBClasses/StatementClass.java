@@ -1,4 +1,4 @@
-package myBot;
+package myBot.DBClasses;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -6,6 +6,10 @@ import com.github.twitch4j.TwitchClientBuilder;
 import com.github.twitch4j.helix.domain.Clip;
 import com.github.twitch4j.helix.domain.ClipList;
 import com.github.twitch4j.helix.domain.GameList;
+import myBot.Commands.*;
+import myBot.DBClasses.StatementClass;
+import myBot.UtilityClasses.ParseClass;
+import myBot.UtilityClasses.RequestForToken;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +49,7 @@ public class MyBot extends TelegramLongPollingCommandBot {
         register(new GetTopUserClips("topuserclips", "get top view clips by user nickname.Use nickname of user as an argument.Example:/topuserclips forsen "));
         register(new GameSubscribe("gamesub", "subscribe for getting top clips of game every day."));
         register(new GameUnsubscribe("gameunsub","unsubscribe from getting daily clips"));
+        register(new GetGameSubs("gamesublist","show your game subscriptions"));
     }
 
     @Override
@@ -68,7 +73,7 @@ public class MyBot extends TelegramLongPollingCommandBot {
         return token;
     }
 
-    @Scheduled(fixedRate = 4000000)
+    @Scheduled(fixedRate = 4000000)//change for different time rate
     public void getAppToken() throws IOException, ParseException {
         String getContent = requestForToken.getAccessAppToken();
         System.out.println("Gained App Token");
@@ -79,8 +84,8 @@ public class MyBot extends TelegramLongPollingCommandBot {
         this.accessAppToken = accessAppToken;
     }
 
-    @Scheduled(fixedRate = 40000)
-    public void getСlipsByTime() throws TelegramApiException, SQLException {
+    @Scheduled(fixedRate = 40000)//change for different time rate
+    public void getGameСlipsByTime() throws TelegramApiException, SQLException {
         List<String> chatIdlist = statementClass.getAllChatId();
         for (String chatId : chatIdlist) {
             String gamesString = statementClass.getGamesByChatId(chatId);

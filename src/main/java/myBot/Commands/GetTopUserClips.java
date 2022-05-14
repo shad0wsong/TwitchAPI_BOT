@@ -1,10 +1,12 @@
-package myBot;
+package myBot.Commands;
 
 import com.github.twitch4j.TwitchClient;
 import com.github.twitch4j.TwitchClientBuilder;
 import com.github.twitch4j.helix.domain.Clip;
 import com.github.twitch4j.helix.domain.ClipList;
 import com.github.twitch4j.helix.domain.GameList;
+import com.github.twitch4j.helix.domain.UserList;
+import myBot.MyBot;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
@@ -17,25 +19,22 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class GetTopGameClips extends BotCommand {
-    ParseClass parseClass = new ParseClass();
-    public GetTopGameClips(String commandIdentifier, String description) {
+public class GetTopUserClips extends BotCommand {
+    public GetTopUserClips(String commandIdentifier, String description) {
         super(commandIdentifier, description);
     }
 
     @Override
-    public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
-        final String[] gameId = {""};
+    public void execute(AbsSender absSender, User tgUser, Chat chat, String[] strings) {
+        final String[] userId = {""};
         TwitchClient twitchClient = TwitchClientBuilder.builder()
                 .withEnableHelix(true)
                 .build();
-        String gameName=parseClass.gameNameParse(strings);
-        GameList resultList = twitchClient.getHelix().getGames(MyBot.accessAppToken,null, Arrays.asList(gameName)).execute();
-        resultList.getGames().forEach(game -> {
-             gameId[0] =game.getId();
-        });
-
-        ClipList clipList = twitchClient.getHelix().getClips(MyBot.accessAppToken, null, gameId[0], null, null, null, 10, null,null).execute();
+        UserList resultList = twitchClient.getHelix().getUsers(MyBot.accessAppToken, null, Arrays.asList(strings[0])).execute();
+        resultList.getUsers().forEach(user -> {
+                    userId[0]=user.getId();
+                });
+        ClipList clipList = twitchClient.getHelix().getClips(MyBot.accessAppToken, userId[0], null, null, null, null, 10, null,null).execute();
         Comparator<Clip> viewComparator = (o1, o2) -> o1.getViewCount().compareTo(o2.getViewCount());
         clipList.getData().sort(viewComparator);
 

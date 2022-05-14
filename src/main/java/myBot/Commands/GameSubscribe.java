@@ -1,5 +1,7 @@
-package myBot;
+package myBot.Commands;
 
+import myBot.DBClasses.StatementClass;
+import myBot.UtilityClasses.ParseClass;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;

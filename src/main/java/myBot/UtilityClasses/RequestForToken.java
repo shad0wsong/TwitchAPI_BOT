@@ -1,4 +1,4 @@
-package myBot;
+package myBot.UtilityClasses;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;

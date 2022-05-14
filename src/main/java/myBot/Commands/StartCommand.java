@@ -1,4 +1,4 @@
-package myBot;
+package myBot.Commands;
 
 import org.jvnet.hk2.annotations.Service;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;

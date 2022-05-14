@@ -1,4 +1,4 @@
-package myBot;
+package myBot.UtilityClasses;
 
 public class ParseClass {
 
