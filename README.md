@@ -8,6 +8,6 @@ Some examples:</br>
 <img src=https://user-images.githubusercontent.com/101453514/164789893-c4a6e865-e299-41f5-b1e1-4a98baabd286.png>
 <img src=https://user-images.githubusercontent.com/101453514/164790071-02db9d33-7f7f-4b4e-b8e4-2b8c99aa132b.png>
 </br>
-Subs example:
+Subs example: 
 <img src=https://user-images.githubusercontent.com/101453514/168423957-ffb3b9b6-63d8-429a-ace7-f98823dc5873.png>
 <img src=https://user-images.githubusercontent.com/101453514/168424677-15227d98-8e8f-4a2f-b395-6f0d67491b37.png>
